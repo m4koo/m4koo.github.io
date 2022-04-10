@@ -214,9 +214,9 @@ function animate () {
         init()
     }
 }
-init()
-animate()
 
+animate()
+init()
 // Event listener (keydown = key pressed) (keyup = key released)
 window.addEventListener('keydown', ({keyCode}) => {
     //console.log(keyCode)
