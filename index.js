@@ -10,6 +10,11 @@ let platformImg = createImage("/img/platform.png")
 let background = createImage("/img/background.png")
 let hills = createImage("/img/hills.png")
 let platformSmallTall = createImage("/img/platformSmallTall.png")
+    // Character Sprites
+let spriteRunLeft = createImage("/img/spriteRunLeft.png")
+let spriteRunRight = createImage("/img/spriteRunRight.png")
+let spriteStandLeft = createImage("/img/spriteStandLeft.png")
+let spriteStandRight = createImage("/img/spriteStandRight.png")
 
 
 class Player {
@@ -24,16 +29,51 @@ class Player {
             x: 0,
             y: 0
         }
-        this.width = 30
-        this.height = 30
+        this.width = 66
+        this.height = 150
+        this.image = spriteStandRight
+        this.frames = 0
+        this.sprites = {
+            stand: {
+                right: spriteStandRight,
+                left: spriteStandLeft,
+                cropWidth: 177,
+                width: 66
+            },
+            run: {
+                right: spriteRunRight,
+                left: spriteRunLeft,
+                cropWidth: 341,
+                width: 127.875
+            }
+        }
+
+        this.currentSprite = this.sprites.stand.right
+        this.currentCropWidth = 177
     }
 
     draw() {
-        c.fillStyle = 'red'
-        c.fillRect(this.position.x, this.position.y, this.width, this.height)
+        c.drawImage(
+            this.currentSprite,
+            this.currentCropWidth * this.frames,                  
+            0,                  
+            this.currentCropWidth,                
+            400,                
+            this.position.x,
+            this.position.y,
+            this.width,
+            this.height
+        )
     }
 
     update() {
+        this.frames++
+        if (this.frames > 59 && (this.currentSprite === this.sprites.stand.right || this.currentSprite === this.sprites.stand.left)){
+            this.frames = 0
+        }else if (this.frames >= 29 && (this.currentSprite === this.sprites.run.right || this.currentSprite === this.sprites.run.left)){
+            this.frames = 0
+        }
+
         this.draw()
         this.position.x += this.velocity.x
         this.position.y += this.velocity.y
@@ -86,6 +126,7 @@ let player = new Player ()
 let platforms = []
 let genericObject = []
 
+let lastKey
 const keys = {
     right: {
         pressed: false
@@ -174,7 +215,7 @@ function animate () {
     // move right-left && Background scroll
     if (keys.right.pressed && player.position.x < 400) { //player.position.x < num = right border which the player can move and after that it is scrolling the background
         player.velocity.x = player.speed
-    } else if (keys.left.pressed && player.position.x > 100){ //same as above, just the left border
+    } else if ((keys.left.pressed && player.position.x > 100) || (keys.left.pressed && scrollOffset === 0 && player.position.x > 0)){ //same as above, just the left border
         player.velocity.x = -player.speed
     }else {
         player.velocity.x = 0
@@ -185,7 +226,7 @@ function animate () {
                 platform.position.x -= player.speed        //movementspeed to right
             })
             genericObject.forEach(genericObject => genericObject.position.x -= player.speed * 0.66) //background swipes left when moving right
-        }else if (keys.left.pressed) {
+        }else if (keys.left.pressed && scrollOffset > 0) {
             scrollOffset -= player.speed
             platforms.forEach(platform => {
                 platform.position.x += player.speed       //movementspeed to left
@@ -204,6 +245,29 @@ function animate () {
         }
     })
 
+    // sprite switching
+    if (keys.right.pressed && lastKey === 'right' && player.currentSprite !== player.sprites.run.right){
+        player.frames = 1
+        player.currentSprite = player.sprites.run.right
+        player.currentCropWidth = player.sprites.run.cropWidth
+        player.width = player.sprites.run.width
+    }else if (keys.left.pressed && lastKey === 'left' && player.currentSprite !== player.sprites.run.left){
+        player.frames = 1
+        player.currentSprite = player.sprites.run.left
+        player.currentCropWidth = player.sprites.run.cropWidth
+        player.width = player.sprites.run.width
+    }else if (!keys.left.pressed && lastKey === 'left' && player.currentSprite !== player.sprites.stand.left){
+        player.frames = 1
+        player.currentSprite = player.sprites.stand.left
+        player.currentCropWidth = player.sprites.stand.cropWidth
+        player.width = player.sprites.stand.width
+    }else if (!keys.right.pressed && lastKey === 'right' && player.currentSprite !== player.sprites.stand.right){
+        player.frames = 1
+        player.currentSprite = player.sprites.stand.right
+        player.currentCropWidth = player.sprites.stand.cropWidth
+        player.width = player.sprites.stand.width
+    }
+
     // win condition
     if (scrollOffset > platformImg.width * 6){
         console.log("You Win")
@@ -214,9 +278,9 @@ function animate () {
         init()
     }
 }
-
-animate()
 init()
+animate()
+
 // Event listener (keydown = key pressed) (keyup = key released)
 window.addEventListener('keydown', ({keyCode}) => {
     //console.log(keyCode)
@@ -224,11 +288,13 @@ window.addEventListener('keydown', ({keyCode}) => {
         case 65:
             console.log('left')
             keys.left.pressed = true
+            lastKey = 'left'
             break
 
         case 68:
             console.log('right')
             keys.right.pressed = true
+            lastKey = 'right'
             break
 
         case 87:
@@ -247,21 +313,21 @@ window.addEventListener('keyup', ({keyCode}) => {
     //console.log(keyCode)
     switch (keyCode) {
         case 65:
-            console.log('left')
-            keys.left.pressed = false
+            //console.log('left')
+            keys.left.pressed = false 
             break
 
         case 68:
-            console.log('right')
+            //console.log('right')
             keys.right.pressed = false
             break
 
         case 87:
-            console.log('up')
+            //console.log('up')
             break
 
         case 83:
-            console.log('down')
+            //console.log('down')
             break
     }
 })
