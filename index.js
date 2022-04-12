@@ -300,9 +300,11 @@ window.addEventListener('keydown', ({keyCode}) => {
         case 87:
             console.log('up')
             if (event.repeat) {return}
-            player.velocity.y -= player.jump
+            if (player.velocity.y === 0){
+                return player.velocity.y -= player.jump
+            }
             break
-
+            
         case 83:
             console.log('down')
             break
