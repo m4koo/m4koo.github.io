@@ -6,15 +6,15 @@ canvas.width = 1280
 canvas.height = 720
 
 // import images
-let platformImg = createImage("/img/platform.png")
-let background = createImage("/img/background.png")
-let hills = createImage("/img/hills.png")
-let platformSmallTall = createImage("/img/platformSmallTall.png")
+let platformImg = createImage("/platformer/img/platform.png")
+let background = createImage("/platformer/img/background.png")
+let hills = createImage("/platformer/img/hills.png")
+let platformSmallTall = createImage("/platformer/img/platformSmallTall.png")
     // Character Sprites
-let spriteRunLeft = createImage("/img/spriteRunLeft.png")
-let spriteRunRight = createImage("/img/spriteRunRight.png")
-let spriteStandLeft = createImage("/img/spriteStandLeft.png")
-let spriteStandRight = createImage("/img/spriteStandRight.png")
+let spriteRunLeft = createImage("/platformer/img/spriteRunLeft.png")
+let spriteRunRight = createImage("/platformer/img/spriteRunRight.png")
+let spriteStandLeft = createImage("/platformer/img/spriteStandLeft.png")
+let spriteStandRight = createImage("/platformer/img/spriteStandRight.png")
 
 
 class Player {
