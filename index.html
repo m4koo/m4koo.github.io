@@ -4,26 +4,72 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolie (WIP)</title>
-    <style>
-        body{
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            
-        }
-        div{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-    </style>
+    <title>Portfolio (WIP)</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
+    <!--WRAPS ALL-->
     <div>
-        <button><a href="./platformer/platformer.html">Platformer</a></button>
-        <button><a href="./movie-watchlist/movie-watchlist.html">Movie-Watchlist</a></button>
-    </div>
+        <!--HEAD PAGE-->
+        <section class="min-h-screen">
+            <header class="py-2 flex items-center justify-around">
+                <img src="/svg/logo.svg" alt="logo" class="w-36">
+                <nav class="flex gap-10 text-lg">
+                    <a href="#Projects">Projects</a>
+                    <a href="#Contact">Contact</a>
+                </nav>
+            </header>
+            <div class="flex items-center mt-20">
+                <div class="ml-auto" style="max-width: 570px;">
+                    <h1 class="text-5xl text-slate-700 fade-in-1">
+                        Hey, I'm Mahmut Kalem
+                    </h1>
+                    <p class="mt-3 text-slate-500 flex flex-col gap-2 pl-8 mt-6 fade-in-3">
+                        <span class="block">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            Web Developer
+                        </span>
+
+                        <span class="block">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                            </svg>
+                            Software-Engineer
+                        </span>
+
+                        <span class="block">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            Freelancer
+                        </span>
+                    </p>
+                </div>
+                <img src="/img/bruce-mars-8YG31Xn4dSw-unsplash.png" alt="" style="height: 450px" class="mr-auto fade-in-2">
+            </div>
+        </section>
+
+        <!-- PROJECT PAGE -->
+        <section class="min-h-screen bg-slate-800" id="Projects">
+            <div class="flex justify-center pt-12">
+                <h2 class="text-white text-5xl">
+                    Projects
+                </h2>
+            </div>
+            <div class="flex justify-center pt-12">
+                <div class="grid grid-cols-4 gap-x-2" style="width: 90vw;">
+                    <a href="./platformer/platformer.html"><img src="/img/platformertestpic.png" alt="" class="h-full"></a>
+                    <a href="./movie-watchlist/movie-watchlist.html"><img src="/img/mwptestpic.png" alt=""></a>
+                </div>
+            </div>
+        </section>
+    </div>    
 </body>
 </html>
