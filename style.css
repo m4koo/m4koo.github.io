@@ -54,3 +54,7 @@ background-size: cover;
   ::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
+
+  .max-w-c{
+    max-width: 13rem;
+  }
