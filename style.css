@@ -194,5 +194,13 @@ background-size: cover;
   background-color: #427ada;
 }
 
+#aboutMe:hover {
+  background-color: #ffffff;
+}
+
+#aboutMe:hover .icon{
+  color: #000000;
+}
+
 
 /* ------------------- / ICONS -------------------- */
