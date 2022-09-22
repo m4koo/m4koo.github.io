@@ -14,6 +14,11 @@ background-image: url("/svg/bg-img.svg");
 background-size: cover;
 }
 
+#contact-page{
+  background-image: url("/svg/bg-img-reverted.svg");
+  background-size: cover;
+}
+
 .fade-in-1 {
     animation: fadeIn 5s;
 }
@@ -59,93 +64,152 @@ background-size: cover;
   max-width: 13rem;
 }
 
-
-
-
-/* TEST */
-/* TEST */
-/* TEST */
-/* TEST */
-/* TEST */
-/* TEST */
-/* TEST */
-/* TEST */
-/* TEST */
-/* TEST */
-/* TEST */
-
-.card{
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  word-wrap: break-word;
-  background-color: #fff;
-  background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.247);
-  border-radius: 0.55rem;
+#projectPics > a{
+  width: max-content/5;
+  height: max-content/2;
 }
 
-.card-img-top{
-  border-top-left-radius: calc(0.55rem - 1px);
-  border-top-right-radius: calc(0.55rem - 1px);
-  width: 100%;
-}
 
-.card-body{
-  flex: 1 1 auto;
-  padding: 1rem 1rem;
-}
 
-.card-title{
-  margin-bottom: 0.5rem;
-}
-h5{
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-  line-height: 1.2;
-  display: block;
-  font-size: 0.83em;
-  margin-block-start: 1.67em;
-  margin-block-end: 1.67em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  font-weight: bold;
-}
 
-.card-text{
-  margin-top: 0;
-  margin-bottom: 1rem;
-  display: block;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-}
+/* TEST */
 
-.btn{
-  display: inline-block;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #212529;
-  text-align: center;
-  text-decoration: none;
+.button {
+  border: 3px solid white;
+  overflow: hidden;
+  color: white;
+  height: 100px;
+  margin: 5px;
+  width: 100px;
+  border-radius: 50%;
+  display: table-cell;
   vertical-align: middle;
+  text-align: center;
+  background-color: rgba(100, 100, 100, .8);
   cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-  background-color: transparent;
-  border: 1px solid transparent;
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  border-radius: 0.25rem;
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-.btn-primary{
-  color: #fff;
-    background-color: #0d6efd;
-    border-color: #0d6efd;
+.button > .icon {
+  position: relative;
 }
+
+.buttons-container {
+  display: table;
+  border-spacing: 10px;
+  margin: 0 auto;
+}
+
+.buttons-panel {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.icon {
+  font-size: 3em;
+}
+
+
+/* ------------------------- / GENERAL ----------------------- */
+
+
+/* ----------------------- ANIMATIONS & TRANSITIONS --------------------- */
+
+.animated {
+  -webkit-transition: .5s all;
+  transition: .5s all;
+}
+
+.animated.spin:hover {
+  -webkit-transfrom: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+.animated.bounce:hover > .icon {
+  -webkit-animation: bounce .5s linear infinite;
+  animation: bounce .5s linear infinite;
+}
+
+.zoom > .icon {
+  -webkit-transition: .5s all;
+  transition: .5s all;
+}
+
+.animated.zoom:hover > .icon {
+  -wekbkit-transform: scale(1.5);
+  transform: scale(1.5);
+}
+
+@-webkit-keyframes bounce {
+  0% {
+    bottom: 0;
+  }
+  10% {
+    bottom: 5px;
+  }
+  50% {
+    bottom: 10px;
+  }
+  90% {
+    bottom: 5px;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    bottom: 0;
+  }
+  10% {
+    bottom: 5px;
+  }
+  50% {
+    bottom: 10px;
+  }
+  90% {
+    bottom: 5px;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+
+
+/* ----------------------- / ANIMATIONS & TRANSITIONS --------------------- */
+
+
+/* ------------------- ICONS ------------------- */
+
+#twitch:hover {
+  background-color: #64459B;
+}
+
+#facebook:hover {
+  background-color: #4867AA;
+}
+
+#android:hover {
+  background-color: white;
+  border-color: #99CC00;
+}
+
+#android:hover > .icon {
+  color: #99CC00;
+}
+
+#github:hover {
+  background-color: #000000;
+}
+
+#freecodecamp:hover {
+  background-color: #0b0349;
+}
+
+#mail:hover {
+  background-color: #427ada;
+}
+
+
+/* ------------------- / ICONS -------------------- */
