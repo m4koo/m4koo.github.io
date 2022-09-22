@@ -115,7 +115,7 @@ background-size: cover;
 
 /* ----------------------- ANIMATIONS & TRANSITIONS --------------------- */
 
-.animated {
+.animated a{
   -webkit-transition: .5s all;
   transition: .5s all;
 }
@@ -181,23 +181,6 @@ background-size: cover;
 
 
 /* ------------------- ICONS ------------------- */
-
-#twitch:hover {
-  background-color: #64459B;
-}
-
-#facebook:hover {
-  background-color: #4867AA;
-}
-
-#android:hover {
-  background-color: white;
-  border-color: #99CC00;
-}
-
-#android:hover > .icon {
-  color: #99CC00;
-}
 
 #github:hover {
   background-color: #000000;
