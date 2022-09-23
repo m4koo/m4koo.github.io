@@ -1,0 +1,54 @@
+body{
+    background-image: url(/svg/about-bg.svg);
+    background-size: cover;
+}
+
+.about-me{
+    margin-left: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.headline{
+    display: grid;
+    place-items: center;
+}
+
+h1{
+    font-size: 4em;
+    color: rgba(255, 255, 255, 0.805);
+}
+
+p{
+    font-size: 2em;
+    color: rgba(255, 255, 255, 0.805);;
+}
+
+.text {
+    width: 60%;
+}
+
+a{
+    color: white;
+}
+
+.skills{
+    margin: 0 -2rem;
+    margin-right: 1rem;
+    max-width: 4rem;
+    border-style: groove;
+    text-align: center;
+}
+
+.box{
+    font-size: 2.5em;
+    overflow-wrap: break-word;
+}
+
+.box p{
+    margin: 0;
+}
+
+.box:hover{
+    cursor: pointer;
+}

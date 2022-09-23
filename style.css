@@ -202,5 +202,9 @@ background-size: cover;
   color: #000000;
 }
 
+#telephone:hover{
+  background-color: rgb(150, 222, 41);
+}
+
 
 /* ------------------- / ICONS -------------------- */
