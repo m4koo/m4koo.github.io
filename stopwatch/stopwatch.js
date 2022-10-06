@@ -54,7 +54,7 @@ window.onload = function(){
             minutes++;
             setMinutes.innerHTML = "0" + minutes;
             seconds = 0
-            setSeconds.innerHTML = seconds;
+            setSeconds.innerHTML = "0" + seconds;
         }
         if (minutes > 9){
             setMinutes.innerHTML = minutes;
