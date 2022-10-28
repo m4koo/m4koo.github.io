@@ -207,4 +207,9 @@ background-size: cover;
 }
 
 
-/* ------------------- / ICONS -------------------- */
+/* ------------------- / FONTS -------------------- */
+@font-face {
+  font-family: Poppins;
+  src: url(./Fonts/Poppins/Poppins-Regular.ttf);
+}
+

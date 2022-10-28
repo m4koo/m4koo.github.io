@@ -145,3 +145,8 @@ select{
     color: #1D976C;
     transition: all 0.3s ease;
 }
+
+@font-face {
+    font-family: Quicksand;
+    src: url(/Fonts/Quicksand/Quicksand-VariableFont_wght.ttf);
+  }
