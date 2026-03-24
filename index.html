@@ -6,51 +6,11 @@
     <title>Mahmut | Webentwickler</title>
     <link rel="stylesheet" href="style/fonts.css">
     <link rel="stylesheet" href="style/style.css">
-    <!-- Tailwind CSS (CDN für schnelles Prototyping) -->
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-    
-    <!-- Tailwind Konfiguration für Farben & Schriften passend zum Screenshot -->
-    <!-- <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        navy: {
-                            700: '#2A2E4B',
-                            800: '#21243D',
-                            900: '#181A2F',
-                        },
-                        accent: '#F28B71', // Ein weiches Korallenrot/Orange
-                        accentDark: '#D9775F'
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        heading: ['Montserrat', 'sans-serif'],
-                        script: ['"Caveat"', 'cursive'], // Für die verspielten kleinen Überschriften
-                    }
-                }
-            }
-        }
-    </script> -->
 
     <script src="js/gsap.min.js"></script>
     <script src="js/ScrollTrigger.min.js"></script>
+    
 
-    <style>
-        body {
-            background-color: #181A2F; /* navy-900 */
-            color: #A0AEC0; /* Helles Grau für Fließtext */
-            overflow-x: hidden;
-        }
-        /* Dekorative organische Formen (Platzhalter) */
-        .blob {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            z-index: -1;
-            opacity: 0.4;
-        }
-    </style>
 </head>
 <body class="font-sans relative">
 
@@ -91,7 +51,7 @@
                 <!-- Rahmen / Akzent hinter dem Bild -->
                 <div class="absolute w-64 h-80 lg:w-80 lg:h-96 bg-accentDark border-4 border-white transform rotate-6 translate-x-4 translate-y-4"></div>
                 <!-- Bild Platzhalter -->
-                <img src="https://via.placeholder.com/400x500/181A2F/FFFFFF?text=Foto+Mahmut" alt="Mahmut" class="relative z-10 w-64 h-80 lg:w-80 lg:h-96 object-cover border-4 border-navy-800 shadow-2xl transform -rotate-3">
+                <img src="pics/itsame.jpeg" alt="Mahmut" class="relative z-10 w-64 h-80 lg:w-80 lg:h-96 object-cover border-4 border-navy-800 shadow-2xl transform -rotate-3">
             </div>
         </div>
     </section>
@@ -114,7 +74,7 @@
             </div>
 
             <!-- Skills Grid -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-32 gs-reveal">
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-8 mb-32 gs-reveal">
                 <div class="p-6 bg-navy-900 rounded-xl border border-navy-700 text-center hover:border-accent transition-colors">
                     <span class="block text-white font-bold text-xl mb-2">HTML5</span>
                     <span class="text-sm">Semantisch & Barrierefrei</span>
@@ -127,9 +87,37 @@
                     <span class="block text-white font-bold text-xl mb-2">JavaScript</span>
                     <span class="text-sm">ES6+ & Interaktivität</span>
                 </div>
-                <div class="p-6 bg-navy-900 rounded-xl border border-navy-700 text-center hover:border-accent transition-colors">
+                <!-- <div class="p-6 bg-navy-900 rounded-xl border border-navy-700 text-center hover:border-accent transition-colors">
                     <span class="block text-white font-bold text-xl mb-2">GSAP</span>
                     <span class="text-sm">Komplexe Animationen</span>
+                </div> -->
+                <div class="p-6 bg-navy-900 rounded-xl border border-navy-700 text-center hover:border-accent transition-colors">
+                    <span class="block text-white font-bold text-xl mb-2">Node.js</span>
+                    <span class="text-sm">Server & Backend-Logik</span>
+                </div>
+                <div class="p-6 bg-navy-900 rounded-xl border border-navy-700 text-center hover:border-accent transition-colors">
+                    <span class="block text-white font-bold text-xl mb-2">APIs</span>
+                    <span class="text-sm">REST & Integration</span>
+                </div>
+                <div class="p-6 bg-navy-900 rounded-xl border border-navy-700 text-center hover:border-accent transition-colors">
+                    <span class="block text-white font-bold text-xl mb-2">Git / GitHub</span>
+                    <span class="text-sm">Versionierung & Kollaboration</span>
+                </div>          
+            </div>
+            
+            <!-- Popup Overlay -->
+            <div id="popup" class="fixed inset-0 bg-black/60 flex items-center justify-center z-50 hidden">
+                <div class="bg-gray-900 border border-accent rounded-2xl p-8 max-w-sm mx-4 text-center shadow-2xl">
+                    <p class="text-white text-lg font-semibold mb-2">Externe Seite</p>
+                    <p class="text-gray-400 text-sm mb-6">Du wirst zu meinem Pokédex weitergeleitet und verlässt diese Seite.</p>
+                    <div class="flex gap-3 justify-center">
+                        <button onclick="closePopup()" class="px-5 py-2 rounded-lg border border-gray-600 text-gray-300 hover:bg-gray-800 transition-colors">
+                            Abbrechen
+                        </button>
+                        <button onclick="confirmRedirect()" class="px-5 py-2 rounded-lg bg-accent text-white font-semibold hover:opacity-80 transition-opacity">
+                            Weiter
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -137,14 +125,23 @@
             <h3 class="font-heading text-white text-3xl font-bold mb-12 gs-reveal">Aktuelle Projekte</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <!-- Projekt 1 -->
-                <div class="group cursor-pointer gs-reveal">
+                <!-- <div class="group cursor-pointer gs-reveal">
                     <div class="overflow-hidden rounded-xl mb-6 border-2 border-transparent group-hover:border-accent transition-colors">
-                        <img src="https://via.placeholder.com/800x500/181A2F/FFFFFF?text=Projekt+1+Mockup" alt="Projekt 1" class="w-full h-auto transform group-hover:scale-105 transition-transform duration-500">
+                        <img src="pics/pokedex.svg" alt="Projekt 1" class="w-full h-auto transform group-hover:scale-105 transition-transform duration-500">
                     </div>
-                    <h4 class="text-white text-2xl font-bold mb-2">Corporate Website Redesign</h4>
-                    <p class="text-sm mb-4">HTML, Tailwind CSS, JavaScript</p>
-                    <p>Komplettes Neudesign und Entwicklung einer modernen und extrem schnellen Firmenpräsenz.</p>
+                    <h4 class="text-white text-2xl font-bold mb-2">Pokedex</h4>
+                    <p class="text-sm mb-4">HTML, CSS, JavaScript, API</p>
+                    <p>Ein interaktiver Pokédex, der alle Pokémon-Daten live über die PokeAPI abruft.</p>
+                </div> -->
+                <div data-url="https://m4koo.github.io/Pokedex/" onclick="openPopup(this.dataset.url)" class="group cursor-pointer gs-reveal">
+                <div class="overflow-hidden rounded-xl mb-6 border-2 border-transparent group-hover:border-accent transition-colors">
+                    <img src="pics/pokedex.svg" alt="Projekt 1" class="w-full h-auto transform group-hover:scale-105 transition-transform duration-500">
                 </div>
+                <h4 class="text-white text-2xl font-bold mb-2">Pokedex</h4>
+                <p class="text-sm mb-4">HTML, CSS, JavaScript, API</p>
+                <p>Ein interaktiver Pokédex, der alle Pokémon-Daten live über die PokeAPI abruft.</p>
+                 </div>
+
                 <!-- Projekt 2 -->
                 <div class="group cursor-pointer gs-reveal mt-0 md:mt-24">
                     <div class="overflow-hidden rounded-xl mb-6 border-2 border-transparent group-hover:border-accent transition-colors">
@@ -223,5 +220,6 @@
             // Platzhalter für zukünftige Animationen
         });
     </script>
+    <script src="scripts/popup.js"></script>
 </body>
 </html>
