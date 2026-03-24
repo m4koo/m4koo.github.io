@@ -1,122 +1,227 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#162a48">
-    <title>Mahmut's Portfolio (WIP)</title>
-    <link rel="stylesheet" href="style.min.css">
-    <!-- TAILWIND UND FONTAWESOME und google fonts LOKAL EINBINDEN!!!!!! -->
+    <title>Mahmut | Webentwickler</title>
+    <link rel="stylesheet" href="style/fonts.css">
+    <link rel="stylesheet" href="style/style.css">
+    <!-- Tailwind CSS (CDN für schnelles Prototyping) -->
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     
+    <!-- Tailwind Konfiguration für Farben & Schriften passend zum Screenshot -->
+    <!-- <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            700: '#2A2E4B',
+                            800: '#21243D',
+                            900: '#181A2F',
+                        },
+                        accent: '#F28B71', // Ein weiches Korallenrot/Orange
+                        accentDark: '#D9775F'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                        script: ['"Caveat"', 'cursive'], // Für die verspielten kleinen Überschriften
+                    }
+                }
+            }
+        }
+    </script> -->
+
+    <script src="js/gsap.min.js"></script>
+    <script src="js/ScrollTrigger.min.js"></script>
+
+    <style>
+        body {
+            background-color: #181A2F; /* navy-900 */
+            color: #A0AEC0; /* Helles Grau für Fließtext */
+            overflow-x: hidden;
+        }
+        /* Dekorative organische Formen (Platzhalter) */
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.4;
+        }
+    </style>
 </head>
+<body class="font-sans relative">
 
-<body>
-    <!--WRAPS ALL-->
-    <div>
-        <!--HEAD PAGE-->
-        <section class="" id="head-page">
-            <header class="py-2 flex items-center justify-around">
-                <img src="/svg/logo.svg" alt="logo" class="w-36">
-                <nav class="hidden lg:flex gap-10 text-lg text-white">
-                    <a href="#Projects">Projects</a>
-                    <a href="#contact-page">Contact</a>
-                </nav>
-            </header>
-            <div class="flex items-center justify-center lg:mt-20 lg:pb-0 mt-20 pb-20">
-                <div class="lg:ml-auto lg:relative flex flex-col items-center" style="top: -6rem">
-                    <h1 class="text-5xl text-slate-300 fade-in-1 sm:max-w-2xl max-w-c">
-                        Mahmut Kalem.
-                    </h1>
-                    <p class="mt-3 text-zinc-400 flex flex-col gap-2 pl-8 mt-6">
-                        <span class="block fade-in-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                            </svg>
-                            Web Developer
-                        </span>
+    <!-- Hintergrund-Dekoration -->
+    <div class="blob bg-blue-500 w-96 h-96 top-0 left-[-100px]"></div>
+    <div class="blob bg-accent w-80 h-80 top-[40%] right-[-50px] opacity-20"></div>
 
-                        <span class="block fade-in-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                            </svg>
-                            Software-Engineer
-                        </span>
+    <!-- Navigation -->
+    <nav class="absolute w-full top-0 left-0 z-50 p-6 md:px-16 flex justify-between items-center">
+        <div class="text-white font-heading font-bold text-2xl tracking-tighter">M.</div>
+        <ul class="hidden md:flex space-x-12 text-sm font-medium tracking-widest uppercase">
+            <li><a href="#about" class="text-white hover:text-accent transition-colors"><span class="text-accent text-xs block mb-1">01</span> About</a></li>
+            <li><a href="#work" class="text-white hover:text-accent transition-colors"><span class="text-accent text-xs block mb-1">02</span> Work</a></li>
+            <li><a href="#contact" class="text-white hover:text-accent transition-colors"><span class="text-accent text-xs block mb-1">03</span> Contact</a></li>
+        </ul>
+    </nav>
 
-                        <span class="block fade-in-5">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                            </svg>
-                            Freelancer
-                        </span>
-                    </p>
-                </div>
-                <div class="hidden lg:inline mr-auto fade-in-2">
-                    <img src="/img/watafinished.png" alt="" style="max-width: 550px;" class="mr-auto fade-in-2">
-                </div>
-                
+    <!-- 01: HERO & ABOUT -->
+    <section id="about" class="min-h-screen flex items-center pt-32 pb-20 px-6 md:px-16 lg:px-32 relative z-10">
+        <div class="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <!-- Text Content -->
+            <div class="order-2 lg:order-1 gs-reveal">
+                <span class="font-script text-accent text-3xl lg:text-4xl block mb-2 transform -rotate-2">No. 01 About</span>
+                <h1 class="font-heading text-white text-5xl lg:text-7xl font-black leading-tight mb-6 tracking-tight">
+                    Hi, ich bin<br>Mahmut
+                </h1>
+                <h2 class="text-accent font-bold tracking-widest uppercase text-sm mb-8">Webentwickler für moderne digitale Erlebnisse</h2>
+                <p class="leading-relaxed mb-6 text-lg max-w-lg">
+                    Ich bin ein leidenschaftlicher Webentwickler mit dem Fokus auf performante, interaktive und visuell ansprechende Webseiten. Mit modernsten Technologien baue ich digitale Lösungen, die nicht nur gut aussehen, sondern auch hervorragend funktionieren.
+                </p>
+                <a href="#contact" class="inline-block mt-4 px-8 py-4 bg-navy-700 hover:bg-accent text-white font-semibold rounded-full transition-all duration-300 shadow-lg">
+                    Kontakt aufnehmen
+                </a>
             </div>
-        </section>
-
-        <!-- PROJECT PAGE -->
-        <section class="min-h-screen bg-slate-800" id="Projects">
-            <div class="flex justify-center pt-12">
-                <h2 class="text-white text-5xl">
-                    Projects
-                </h2>
+            
+            <!-- Image & Decor -->
+            <div class="order-1 lg:order-2 relative flex justify-center gs-reveal">
+                <!-- Rahmen / Akzent hinter dem Bild -->
+                <div class="absolute w-64 h-80 lg:w-80 lg:h-96 bg-accentDark border-4 border-white transform rotate-6 translate-x-4 translate-y-4"></div>
+                <!-- Bild Platzhalter -->
+                <img src="https://via.placeholder.com/400x500/181A2F/FFFFFF?text=Foto+Mahmut" alt="Mahmut" class="relative z-10 w-64 h-80 lg:w-80 lg:h-96 object-cover border-4 border-navy-800 shadow-2xl transform -rotate-3">
             </div>
-            <div class="flex justify-center pt-12">
-                <div class="grid grid-cols-4 gap-x-2 gap-y-4" style="width: 90vw" id="projectPics">
-                    <a href="https://m4koo.github.io/platformer/platformer"><img src="/img/platformertestpic.png" alt=""></a>
-                    <a href="https://m4koo.github.io/movie-watchlist/movie-watchlist"><img src="/img/mwptestpic.png" alt=""></a>
+        </div>
+    </section>
 
-                    <!--testbilder wdh-->
-                    <a href="https://m4koo.github.io/stopwatch/stopwatch"><img src="/img/platformertestpic.png" alt=""></a>
-                    <a href="./movie-watchlist/movie-watchlist.html"><img src="/img/mwptestpic.png" alt=""></a>
-                    <a href="./platformer/platformer.html"><img src="/img/platformertestpic.png" alt=""></a>
-                    <a href="./movie-watchlist/movie-watchlist.html"><img src="/img/mwptestpic.png" alt=""></a>
-                    <a href="./platformer/platformer.html"><img src="/img/platformertestpic.png" alt=""></a>
-                    <a href="./movie-watchlist/movie-watchlist.html"><img src="/img/mwptestpic.png" alt=""></a>
-                
+    <!-- SVG Wellen-Trenner -->
+    <svg class="w-full h-auto text-navy-800 fill-current -mb-1" viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
+    </svg>
+
+    <!-- 02: WORK & SKILLS -->
+    <section id="work" class="bg-navy-800 py-32 px-6 md:px-16 lg:px-32 relative z-10">
+        <div class="container mx-auto">
+            <div class="max-w-3xl mb-20 gs-reveal">
+                <span class="font-script text-accent text-3xl lg:text-4xl block mb-2 transform -rotate-2">No. 02 Work & Skills</span>
+                <h2 class="font-heading text-white text-4xl lg:text-6xl font-black mb-6">Meine Expertise</h2>
+                <p class="uppercase text-accent font-bold tracking-widest text-sm mb-6">Solides Handwerk. Moderne Tools.</p>
+                <p class="leading-relaxed text-lg">
+                    Mein Tech-Stack basiert auf den Kerntechnologien des Webs: HTML, CSS und JavaScript. Egal ob komplexe Web-Applikationen, flüssige Animationen oder perfekt responsive Layouts – ich bringe die nötigen Fähigkeiten mit, um Ideen in Code zu übersetzen.
+                </p>
+            </div>
+
+            <!-- Skills Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-32 gs-reveal">
+                <div class="p-6 bg-navy-900 rounded-xl border border-navy-700 text-center hover:border-accent transition-colors">
+                    <span class="block text-white font-bold text-xl mb-2">HTML5</span>
+                    <span class="text-sm">Semantisch & Barrierefrei</span>
+                </div>
+                <div class="p-6 bg-navy-900 rounded-xl border border-navy-700 text-center hover:border-accent transition-colors">
+                    <span class="block text-white font-bold text-xl mb-2">CSS3 / Tailwind</span>
+                    <span class="text-sm">Responsive & Modern</span>
+                </div>
+                <div class="p-6 bg-navy-900 rounded-xl border border-navy-700 text-center hover:border-accent transition-colors">
+                    <span class="block text-white font-bold text-xl mb-2">JavaScript</span>
+                    <span class="text-sm">ES6+ & Interaktivität</span>
+                </div>
+                <div class="p-6 bg-navy-900 rounded-xl border border-navy-700 text-center hover:border-accent transition-colors">
+                    <span class="block text-white font-bold text-xl mb-2">GSAP</span>
+                    <span class="text-sm">Komplexe Animationen</span>
                 </div>
             </div>
-        </section>
 
-
-        <!-- CONTACT PAGE -->
-        <section class="h-fit bg-blue-900" id="contact-page">
-                <div class="flex justify-center pt-12">
-                    <h2 class ="text-white text-5xl">
-                        Contact Me! :)
-                    </h2>
-                </div>
-                <!-- <div class="buttons-panel"> -->
-                    <div class="buttons-container py-6">
-                        <a href="./about-me/about.html" class="button animated zoom" id="aboutMe"> <!--about me page WIP-->
-                            <i class="icon fa-solid fa-info"></i>
-                        </a>
-                        <a href="https://github.com/m4koo" class="button animated zoom" id="github">
-                            <i class="icon fa-brands fa-github"></i>
-                         </a>
-                        <a href="https://www.freecodecamp.org/m4ko" class="button animated zoom" id="freecodecamp">
-                            <i class="icon fa-brands fa-free-code-camp"></i>
-                        </a>
-                       
-                        <a href="mailto:mahmut.kalem@outlook.de?subject=You are hired!" class="button animated zoom" id="mail">
-                            <i class="icon fa-solid fa-envelope"></i>
-                        </a>
-
-                        <a href="" class="button animated zoom" id="telephone">
-                            <i class="icon fa-solid fa-phone"></i>
-                        </a>
+            <!-- Projects Placeholder -->
+            <h3 class="font-heading text-white text-3xl font-bold mb-12 gs-reveal">Aktuelle Projekte</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Projekt 1 -->
+                <div class="group cursor-pointer gs-reveal">
+                    <div class="overflow-hidden rounded-xl mb-6 border-2 border-transparent group-hover:border-accent transition-colors">
+                        <img src="https://via.placeholder.com/800x500/181A2F/FFFFFF?text=Projekt+1+Mockup" alt="Projekt 1" class="w-full h-auto transform group-hover:scale-105 transition-transform duration-500">
                     </div>
-                <!-- </div> -->
-                <!-- 1. Infopoint (abaout me)
-                    2. GitHub
-                    3. fCC
-                    4. Mail (button verlinkt direkt zum email schreiben oder kopiert email adresse (mit meldung))
-                    5 XiNG, LinkedIn usw. falls vorhanden -->       
-        </section>
-    </div>    
+                    <h4 class="text-white text-2xl font-bold mb-2">Corporate Website Redesign</h4>
+                    <p class="text-sm mb-4">HTML, Tailwind CSS, JavaScript</p>
+                    <p>Komplettes Neudesign und Entwicklung einer modernen und extrem schnellen Firmenpräsenz.</p>
+                </div>
+                <!-- Projekt 2 -->
+                <div class="group cursor-pointer gs-reveal mt-0 md:mt-24">
+                    <div class="overflow-hidden rounded-xl mb-6 border-2 border-transparent group-hover:border-accent transition-colors">
+                        <img src="https://via.placeholder.com/800x500/181A2F/FFFFFF?text=Projekt+2+Mockup" alt="Projekt 2" class="w-full h-auto transform group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <h4 class="text-white text-2xl font-bold mb-2">Interaktives Dashboard</h4>
+                    <p class="text-sm mb-4">JavaScript, REST APIs, Chart.js</p>
+                    <p>Entwicklung eines Dashboards zur Visualisierung von Echtzeitdaten mit Fokus auf UX/UI.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SVG Wellen-Trenner 2 -->
+    <svg class="w-full h-auto text-navy-900 fill-current -mb-1 bg-navy-800" viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,64L80,58.7C160,53,320,43,480,48C640,53,800,75,960,80C1120,85,1280,75,1360,69.3L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
+    </svg>
+
+    <!-- 03: CONTACT -->
+    <section id="contact" class="bg-navy-900 py-32 px-6 md:px-16 lg:px-32 relative z-10">
+        <div class="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <!-- Info -->
+            <div class="gs-reveal">
+                <span class="font-script text-accent text-3xl lg:text-4xl block mb-2 transform -rotate-2">No. 03 Contact</span>
+                <h2 class="font-heading text-white text-5xl lg:text-6xl font-black mb-6">Lass uns sprechen</h2>
+                <p class="uppercase text-accent font-bold tracking-widest text-sm mb-12">Bereit für das nächste Projekt?</p>
+                
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="text-white font-bold mb-1">Berufliche Netzwerke</h4>
+                        <a href="#" class="hover:text-accent transition-colors block">LinkedIn Profil ansehen</a>
+                        <a href="#" class="hover:text-accent transition-colors block">GitHub Repositories</a>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-bold mb-1">Standort</h4>
+                        <p>Deutschland / Remote</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form -->
+            <div class="gs-reveal">
+                <form class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm mb-2">Dein Name</label>
+                            <input type="text" class="w-full bg-navy-800 border border-navy-700 text-white px-4 py-3 focus:outline-none focus:border-accent transition-colors" placeholder="Max Mustermann">
+                        </div>
+                        <div>
+                            <label class="block text-sm mb-2">E-Mail Adresse</label>
+                            <input type="email" class="w-full bg-navy-800 border border-navy-700 text-white px-4 py-3 focus:outline-none focus:border-accent transition-colors" placeholder="max@beispiel.de">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm mb-2">Nachricht</label>
+                        <textarea rows="5" class="w-full bg-navy-800 border border-navy-700 text-white px-4 py-3 focus:outline-none focus:border-accent transition-colors" placeholder="Hallo Mahmut..."></textarea>
+                    </div>
+                    <button type="submit" class="px-10 py-4 bg-navy-700 hover:bg-accent text-white font-semibold rounded-full transition-all duration-300">
+                        Nachricht senden
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy-900 border-t border-navy-800 py-8 text-center text-sm">
+        <p>&copy; 2026 Mahmut. Erstellt mit HTML, Tailwind CSS & GSAP.</p>
+    </footer>
+
+    <!-- Initiales Setup für spätere GSAP Animationen -->
+    <script>
+        // Wir bereiten hier schon mal den Code vor, um die Elemente später zu animieren
+        document.addEventListener("DOMContentLoaded", (event) => {
+            gsap.registerPlugin(ScrollTrigger);
+            // Platzhalter für zukünftige Animationen
+        });
+    </script>
 </body>
 </html>

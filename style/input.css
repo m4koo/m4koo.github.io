@@ -1,0 +1,17 @@
+/* Tailwind Kernfunktionen laden */
+@import "tailwindcss";
+
+/* Unser eigenes Theme definieren */
+@theme {
+  /* Eigene Farben (erzeugt automatisch Klassen wie bg-navy-900, text-accent) */
+  --color-navy-700: #2A2E4B;
+  --color-navy-800: #21243D;
+  --color-navy-900: #181A2F;
+  --color-accent: #F28B71;
+  --color-accentDark: #D9775F;
+
+  /* Eigene Schriften (erzeugt font-sans, font-heading, font-script) */
+  --font-sans: "Inter", sans-serif;
+  --font-heading: "Montserrat", sans-serif;
+  --font-script: "Caveat", cursive;
+}
